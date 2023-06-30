@@ -1,22 +1,24 @@
-# Insertion sort Algo works the same way like bubble Sort the only difference is the time complexities thus rendering insertion better
+# Insertion sort Algo works the same way bubble Sort the only difference is the time complexities thus rendering insertion better
 
 def insertion_sort(arr):
     n = len(arr)
 
-    for i in range(1, n):
-        key_value = arr[i]  # Represents the value to be sorted
-        last_elem = i - 1
+    # An outer for loop to go through the list
 
-        while last_elem >= 0 and arr[last_elem] > key_value:
-            arr[last_elem + 1]  = arr[last_elem]
-            last_elem -= 1
+    for i in range(n):
+        key = arr[i]  # element to go through sorting
+        j = i - 1  # represents the index of the before element
 
-            arr[last_elem + 1] = key_value  # Sorting it into the list i respect to its value
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+
+            arr[j] = key
 
     return arr
 
 
-arr = [1, 3, 4, 5, 1, 50, 30, 40, 80, 70, 90]
+arr = [1, 3, 4, 5, 50, 8, 20, 40, 70, 45, 68, 90, 20]
 
 insertion_sort(arr)
 
